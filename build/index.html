@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#000000"><link rel="manifest" href="/manifest.json"><link rel="shortcut icon" href="favicon.ico"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><title>Contoso Retail</title><link rel="stylesheet" href="/animation.css"><link href="/static/css/main.b2d377d5.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script>window.addEventListener('load', e => {
+        if('serviceWorker' in navigator) {
+          try {
+            navigator.serviceWorker.register('/worker.js');
+            console.log("service Worker registered");
+          } catch(error) {
+            console.log('failed');
+          }
+        }
+      });
+      window.addEventListener('beforeinstallprompt', function (e) {
+        console.log('beforeinstallprompt Event fired');
+        e.userChoice.then(function (choiceResult) {
+          console.log(choiceResult.outcome);
+          if (choiceResult.outcome === 'dismissed') {
+            console.log('User cancelled home screen install');
+          }
+          else {
+            console.log('User added to home screen');
+          }
+        });
+      });</script><script type="text/javascript" src="//api-us-st.smartassistant.com/api/v1/advisors/bjSJM3wz/js-loader"></script><script type="text/javascript" src="/static/js/main.090cae4d.js"></script></body></html>
